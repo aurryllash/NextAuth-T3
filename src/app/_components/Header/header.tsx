@@ -20,7 +20,7 @@ const Header = () => {
   const { data: session } = useSession();
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center bg-zinc-50 text-black">
       <div className="container flex min-h-20 max-w-screen-xl items-center justify-between px-4 py-4">
         {/* Side Nav */}
         <div className="md:hidden">
@@ -35,14 +35,14 @@ const Header = () => {
         </div>
 
         {/* Nav */}
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-4 ">
           <div className="hidden gap-6 md:flex md:flex-1 md:flex-row md:justify-end lg:visible">
             {nav.map((eachNav, index) => {
               return (
                 <Link
                   key={index}
                   href={eachNav.href}
-                  className="rounded-md bg-slate-300 px-4 py-1 transition-all hover:cursor-pointer hover:bg-slate-600"
+                  className="rounded-md px-4 py-1 transition-all hover:cursor-pointer hover:bg-slate-600"
                 >
                   {eachNav.title}
                 </Link>

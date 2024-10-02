@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import menu_icon from "public/images/burger-menu.png";
 import { SignOutButton } from "../Buttons/SignOutButton";
-import { Session } from "next-auth";
+import type { Session } from "next-auth";
 
 export default function SideNav({
   isOpened,

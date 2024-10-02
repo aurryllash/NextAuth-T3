@@ -9,6 +9,7 @@ const config = {
     images: {
         domains: [
             "avatars.githubusercontent.com",
+            "fakeimg.pl"
         ]
     }
 };
