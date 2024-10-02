@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
 import menu_icon from "public/images/burger-menu.png";
@@ -21,14 +23,14 @@ export default function SideNav({
   return (
     <>
       <div
-        className={`fixed inset-0 bg-black opacity-50 transition-opacity ${
+        className={`fixed inset-0 bg-black opacity-50 transition-opacity z-20 ${
           isOpened ? "block" : "hidden"
         }`}
         onClick={() => setIsOpened(false)}
       ></div>
 
       <div
-        className={`fixed left-0 top-0 h-full transform bg-gray-800 text-white transition-transform ${
+        className={`fixed left-0 top-0 h-full transform bg-gray-800 text-white transition-transform z-20 ${
           isOpened
             ? "flex translate-x-0 flex-col items-center"
             : "-translate-x-full"

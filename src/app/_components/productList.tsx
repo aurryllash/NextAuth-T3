@@ -21,9 +21,10 @@ type Movie = {
   website: string;
 };
 export default async function PostsList() {
-  const response = await api.product.getAllPost({ number: undefined });
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const response = await api.product.getAllPost({ number: 4 });
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment 
   const products: Movie[] = await response.json();
+
   return (
     <div>
       <h1>Product List</h1>

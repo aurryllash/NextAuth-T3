@@ -5,9 +5,9 @@ import Link from "next/link";
 import defaultProfileImage from "public/images/Default_profile.svg.png";
 import { SignOutButton } from "../Buttons/SignOutButton";
 import { useSession } from "next-auth/react";
-import menu_icon from "public/images/burger-menu.png";
 import { useState } from "react";
 import SideNav from "./sideNav";
+import Cart from "./cart";
 
 const nav = [
   { title: "Home", href: "/" },
@@ -77,6 +77,7 @@ const Header = () => {
               </Link>
             )}
           </div>
+            { <Cart setIsClosed={setIsOpened}/> }
         </div>
       </div>
     </div>
