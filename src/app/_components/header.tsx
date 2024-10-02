@@ -6,7 +6,6 @@ import { SignOutButton } from "./Buttons/SignOutButton";
 
 const Header = async () => {
   const session = await getServerAuthSession();
-  console.log(session?.user.image)
   return (
     <div className="flex items-center justify-center bg-black">
       <div className="container flex max-w-screen-xl items-center justify-between px-4 py-4 min-h-20">
@@ -44,7 +43,7 @@ const Header = async () => {
             <Link href="/profile">
               <Image
                 src={
-                  session?.user.image
+                  session?.user.image && !session.user.image.includes("https://scontent.ftbs10-1.fna.fbcdn.net")
                     ? `${session?.user.image}`
                     : defaultProfileImage
                 }
