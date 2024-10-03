@@ -9,8 +9,7 @@ export default async function Time() {
         return redirect('/404')
     }
     const cookieStore = cookies();
-    const theme = cookieStore.get("theme")
-
+    void cookieStore.get("theme")
 
     return <h1>{ new Date().toLocaleTimeString() }</h1>
 }
