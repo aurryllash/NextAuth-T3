@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import menu_icon from "public/images/burger-menu.png";
+import menu_icon from "public/images/menu-bar.png";
 import { SignOutButton } from "../Buttons/SignOutButton";
 import type { Session } from "next-auth";
 
@@ -72,6 +72,7 @@ export default function SideNav({
       <button className="flex items-center justify-center rounded-md hover:cursor-pointer md:hidden">
         <Image
           src={menu_icon}
+          className="w-8"
           width={50}
           height={40}
           alt="menu icon"

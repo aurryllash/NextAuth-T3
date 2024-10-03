@@ -7,7 +7,7 @@ export default async function Home() {
 
   return (
     <HydrateClient>
-      <main className="min-h-screen bg-gradient-to-b from-[#2e223d] to-[#15162c] text-white">
+      <main className="text-white overflow-hidden">
         <Header />
         <div className="flex items-center justify-center">
           <div className="container flex min-h-20 max-w-screen-xl justify-center px-4 py-4">

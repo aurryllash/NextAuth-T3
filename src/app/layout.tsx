@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
 import "~/styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 
 import { GeistSans } from "geist/font/sans";
-import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "~/trpc/react";
+import Footer from "./_components/Footer/footer";
 
 // export const metadata: Metadata = {
 //   title: "T3 Auth",
@@ -21,7 +21,10 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
         <TRPCReactProvider>
-          <SessionProvider>{children}</SessionProvider>
+          <SessionProvider>
+            {children}
+            <Footer />
+          </SessionProvider>
         </TRPCReactProvider>
       </body>
     </html>

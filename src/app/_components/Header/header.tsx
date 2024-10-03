@@ -8,12 +8,7 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 import SideNav from "./sideNav";
 import Cart from "./cart";
-
-const nav = [
-  { title: "Home", href: "/" },
-  { title: "Dashboard", href: "/" },
-  { title: "About", href: "/" },
-];
+import { nav } from "~/utils/const";
 
 const Header = () => {
   const [isOpened, setIsOpened] = useState<boolean>(false);

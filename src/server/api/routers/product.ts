@@ -12,6 +12,9 @@ export const productRouter = createTRPCRouter({
     })).query(async ({ input }) => {
         const limit = input?.number != undefined ? input.number : 20
         const response = await fetch(`https://freetestapi.com/api/v1/movies?limit=${limit}`);
-        return response;
+        if (!response.ok) {
+            throw new Error('Failed to fetch users')
+        }
+        return response
     })
 })
