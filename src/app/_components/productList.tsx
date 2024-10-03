@@ -1,4 +1,4 @@
-import { api, HydrateClient } from "~/trpc/server";
+import { api } from "~/trpc/server";
 import Image from "next/image";
 import type { Movie } from "~/types/constTypes";
 
@@ -8,19 +8,19 @@ export default async function PostsList() {
   const products: Movie[] = await response.json();
 
   return (
-      <div className="grid grid-cols-2 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 lg:gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product: Movie) => (
           <div
             key={product.id}
             className="transform overflow-hidden rounded-lg bg-white shadow-md transition-transform hover:scale-105"
           >
-            <Image
+            {/* <Image
               src={product.poster}
               alt={product.title}
               className="h-48 w-full object-cover"
               width={1000}
               height={1000}
-            />
+            /> */}
             <div className="p-4">
               <h2 className="h-16 text-base font-semibold text-black lg:text-xl">
                 {product.title}

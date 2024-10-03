@@ -5,6 +5,7 @@ import { TRPCReactProvider } from "~/trpc/react";
 import Footer from "./_components/Footer/footer";
 import type { Metadata } from "next/types";
 import Providers from "./providers";
+import Header from "./_components/Header/header";
 
 export const metadata: Metadata = {
   title: "T3 Auth",
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <TRPCReactProvider>
+            <Header />
             {children}
             <Footer />
           </TRPCReactProvider>
