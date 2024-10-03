@@ -1,3 +1,4 @@
+import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
 import {
@@ -14,6 +15,20 @@ export const productRouter = createTRPCRouter({
         const response = await fetch(`https://freetestapi.com/api/v1/movies?limit=${limit}`);
         if (!response.ok) {
             throw new Error('Failed to fetch users')
+        }
+        return response
+    }),
+
+    getByTitle: publicProcedure.input(z.object({
+        title: z.string()
+    })).query(async ({ input }) => {
+        const response = await fetch(`https://freetestapi.com/api/v1/movies?search=${input.title}`);
+        if (!response.ok) {
+            // throw new Error('Failed to fetch product')
+            new TRPCError({
+                code: "BAD_GATEWAY",
+                message: "TRPC ERROR"
+            })
         }
         return response
     })

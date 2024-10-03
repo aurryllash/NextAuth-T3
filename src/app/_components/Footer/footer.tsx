@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <div className="mt-10 flex flex-col items-center justify-center gap-10 border-t-2 border-slate-200 p-10">
+    <div className="flex flex-col items-center justify-center gap-10 border-t-2 border-slate-200 p-10">
       <div className="flex gap-4">
         {footer_icons.map((icon, index) => {
           return (

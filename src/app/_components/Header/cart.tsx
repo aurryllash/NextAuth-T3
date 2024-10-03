@@ -16,12 +16,12 @@ export default function Cart({ setIsClosed }: { setIsClosed: (isClosed: boolean)
       ></div>
 
       <div
-        className={`fixed bottom-0 right-0 z-20 h-full transform bg-gray-800 text-white transition-transform ${
+        className={`fixed bottom-0 right-0 z-20 h-full transform bg-gray-800 text-white transition-transform w-96  ${
           isOpened
             ? "flextranslate-x-0 flex-col items-center"
             : "translate-x-full"
         }`}
-        style={{ width: "250px", paddingTop: "60px" }}
+        style={{ paddingTop: "60px" }}
       >
         <button
           className="absolute right-4 top-4 text-3xl"
