@@ -1,32 +1,13 @@
 import { api, HydrateClient } from "~/trpc/server";
 import Image from "next/image";
+import type { Movie } from "~/types/constTypes";
 
-type Movie = {
-  id: number;
-  title: string;
-  year: number;
-  genre: string[];
-  rating: number;
-  director: string;
-  actors: string[];
-  plot: string;
-  poster: string;
-  trailer: string;
-  runtime: number;
-  awards: string;
-  country: string;
-  language: string;
-  boxOffice: string;
-  production: string;
-  website: string;
-};
 export default async function PostsList() {
   const response = await api.product.getAllPost({ number: 4 });
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const products: Movie[] = await response.json();
 
   return (
-    <HydrateClient>
       <div className="grid grid-cols-2 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product: Movie) => (
           <div
@@ -56,6 +37,5 @@ export default async function PostsList() {
           </div>
         ))}
       </div>
-    </HydrateClient>
   );
 }
