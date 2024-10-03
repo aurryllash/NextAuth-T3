@@ -20,3 +20,7 @@ export const footer_nav = [
   { title: "Shipping policy", path: "" },
   { title: "Legal notice", path: "" },
 ];
+
+export const middle_icons = [
+  { path: "/images/footer/instagram.png", url: "/" }
+]
