@@ -16,7 +16,7 @@ export default function Cart({ setIsClosed }: { setIsClosed: (isClosed: boolean)
       ></div>
 
       <div
-        className={`fixed bottom-0 right-0 z-20 h-full transform bg-gray-800 text-white transition-transform w-96  ${
+        className={`fixed bottom-0 right-0 z-20 h-full transform bg-gray-800 text-white transition-transform w-64 md:w-96  ${
           isOpened
             ? "flextranslate-x-0 flex-col items-center"
             : "translate-x-full"
