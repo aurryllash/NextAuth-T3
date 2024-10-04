@@ -26,6 +26,8 @@
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
+      "~/constants/*": ["./constants/*"],
+      "~/components/*": ["./app/[lang]/components/*"],
       "~/*": ["./src/*"]
     }
   },

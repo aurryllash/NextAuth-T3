@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
@@ -6,6 +7,8 @@ import Footer from "./_components/Footer/footer";
 import type { Metadata } from "next/types";
 import Providers from "./providers";
 import Header from "./_components/Header/header";
+import { getDictionary } from "./disctionaries";
+import type { LangType } from "~/types/constTypes";
 
 export const metadata: Metadata = {
   title: "T3 Auth",
@@ -13,15 +16,22 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export default function RootLayout({
+export async function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "ge" }]
+}
+
+export default async function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+  params
+}: Readonly<{ children: React.ReactNode, params: { lang: string } }>) {
+  const { lang } = params;
+  const dict: LangType = await getDictionary(lang)
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
-      <body>
+    <html lang={lang} className={`${GeistSans.variable}`}>
+      <body>  
         <Providers>
           <TRPCReactProvider>
-            <Header />
+            <Header dict={dict} lang={lang} />
             {children}
             <Footer />
           </TRPCReactProvider>

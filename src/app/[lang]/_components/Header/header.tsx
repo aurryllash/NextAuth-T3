@@ -9,8 +9,10 @@ import { useState } from "react";
 import SideNav from "./sideNav";
 import Cart from "./cart";
 import { nav } from "~/utils/const";
+import type { LangType } from "~/types/constTypes";
 
-const Header = () => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Header = ({ dict, lang }: { dict: LangType; lang: string }) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const { data: session } = useSession();
 
@@ -30,7 +32,7 @@ const Header = () => {
         </div>
 
         {/* Nav */}
-        <div className="flex items-center justify-center gap-4 ">
+        <div className="flex items-center justify-center gap-4">
           <div className="hidden gap-6 md:flex md:flex-1 md:flex-row md:justify-end lg:visible">
             {nav.map((eachNav, index) => {
               return (
@@ -72,7 +74,9 @@ const Header = () => {
               </Link>
             )}
           </div>
-            { <Cart setIsClosed={setIsOpened}/> }
+          {<Cart setIsClosed={setIsOpened} />}
+          <h1>{ dict.HOME }</h1>
+          <h1>{ dict.ABOUT }</h1>
         </div>
       </div>
     </div>

@@ -2,8 +2,9 @@ import { api, HydrateClient } from "~/trpc/server";
 import ProductList from "./_components/productList";
 import Subscribe from "./_components/Footer/subscribe";
 
-export default async function Home() {
+export default async function Home({ params }: { params: { lang: string } }) {
   void await api.post.getLatest.prefetch();
+  const { lang } = params;
 
   return (
     <HydrateClient>
