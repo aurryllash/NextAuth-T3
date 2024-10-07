@@ -9,10 +9,13 @@ import { useState } from "react";
 import SideNav from "./sideNav";
 import Cart from "./cart";
 import { nav } from "~/utils/const";
+import {useTranslations} from 'next-intl';
+import LanguageSwitcher from "./languageSwitcher";
 
 const Header = () => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const { data: session } = useSession();
+  const t = useTranslations('HEADER');
 
   return (
     <div className="flex items-center justify-center bg-zinc-50 text-black">
@@ -39,7 +42,7 @@ const Header = () => {
                   href={eachNav.href}
                   className="rounded-md px-4 py-1 transition-all hover:cursor-pointer hover:bg-slate-600"
                 >
-                  {eachNav.title}
+                  {t(eachNav.title.toUpperCase())}
                 </Link>
               );
             })}
@@ -68,11 +71,12 @@ const Header = () => {
               <SignOutButton />
             ) : (
               <Link href={"/api/auth/signin"}>
-                <button>Log In</button>
+                <button>{t('LOG_IN')}</button>
               </Link>
             )}
           </div>
             { <Cart setIsClosed={setIsOpened}/> }
+            <LanguageSwitcher />
         </div>
       </div>
     </div>
