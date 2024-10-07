@@ -5,9 +5,9 @@ import { getServerAuthSession } from "~/server/auth";
 export default async function Time() {
     const user = await getServerAuthSession();
 
-    if(!user) {
-        return redirect('/404')
-    }
+    // if(!user) {
+    //     return redirect('/404')
+    // }
     const cookieStore = cookies();
     void cookieStore.get("theme")
 
