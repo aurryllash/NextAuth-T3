@@ -1,9 +1,6 @@
 import "~/styles/globals.css";
 
-import { GeistSans } from "geist/font/sans";
-import { TRPCReactProvider } from "~/trpc/react";
 import type { Metadata } from "next/types";
-import Providers from "./[locale]/providers";
 
 export const metadata: Metadata = {
   title: "T3 Auth",
@@ -14,13 +11,5 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="en" className={`${GeistSans.variable}`}>
-      <body>
-        <Providers>
-          <TRPCReactProvider>{children}</TRPCReactProvider>
-        </Providers>
-      </body>
-    </html>
-  );
+  return children
 }
