@@ -8,11 +8,6 @@ import Header from "./_components/Header/header";
 
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
-import { routing } from "~/i18n/routing";
-
-export async function ggenerateStaticParams() {
-  return routing.locales.map((locale) => ({locale}));
-}
 
 export default async function LocaleLayout({
   children,
