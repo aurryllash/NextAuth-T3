@@ -3,9 +3,7 @@ import Image from "next/image";
 import type { Movie } from "~/types/constTypes";
 
 export default async function PostsList() {
-  const response = await api.product.getAllPost({ number: 4 });
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const products: Movie[] = await response.json();
+  const products: Movie[] = await api.product.getAllPost({ number: 4 });
 
   return (
       <div className="grid grid-cols-2 gap-4 lg:gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

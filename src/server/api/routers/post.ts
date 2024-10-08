@@ -38,4 +38,9 @@ export const postRouter = createTRPCRouter({
   getSecretMessage: protectedProcedure.query(() => {
     return "you can now see this secret message!";
   }),
+  getAllPost: publicProcedure.query(({ ctx }) => {
+    const posts = ctx.db.post.findMany();
+
+    return posts 
+  })
 });

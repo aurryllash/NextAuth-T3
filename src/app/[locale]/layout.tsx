@@ -10,9 +10,9 @@ import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { routing } from "~/i18n/routing";
 
-// export async function getStaticParams() {
-//   return routing.locales.map((locale) => ({locale}));
-// }
+export async function ggenerateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
 
 export default async function LocaleLayout({
   children,

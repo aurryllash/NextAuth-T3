@@ -6,6 +6,7 @@ import {
   protectedProcedure,
   publicProcedure,
 } from "~/server/api/trpc";
+import { Movie } from "~/types/constTypes";
 
 export const productRouter = createTRPCRouter({
     getAllPost: publicProcedure.input(z.object({
@@ -16,7 +17,8 @@ export const productRouter = createTRPCRouter({
         if (!response.ok) {
             throw new Error('Failed to fetch users')
         }
-        return response
+        const res = await response.json() as Movie[];
+        return res
     }),
 
     getByTitle: publicProcedure.input(z.object({
