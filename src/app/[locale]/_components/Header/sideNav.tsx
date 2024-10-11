@@ -5,6 +5,7 @@ import Link from "next/link";
 import menu_icon from "public/images/menu-bar.png";
 import { SignOutButton } from "../Buttons/SignOutButton";
 import type { Session } from "next-auth";
+import { useTranslations } from "next-intl";
 
 export default function SideNav({
   isOpened,
@@ -20,6 +21,8 @@ export default function SideNav({
   }[];
   session: Session | null;
 }) {
+  const t = useTranslations('HEADER');
+  
   return (
     <>
       <div
@@ -52,7 +55,7 @@ export default function SideNav({
                     href={eachNav.href}
                     className="my-1 w-40 rounded-md px-4 py-1 transition-all hover:cursor-pointer hover:bg-slate-600"
                   >
-                    {eachNav.title}
+                    {t(eachNav.title.toUpperCase())}
                   </Link>
                 );
               })}

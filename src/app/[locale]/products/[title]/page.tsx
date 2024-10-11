@@ -8,7 +8,6 @@ export default async function Product({
   params: { title: string };
 }) {
   const title = decodeURIComponent(params.title);
-  console.log(title);
   const response = await api.product.getByTitle({
     title: title,
   });
@@ -16,7 +15,6 @@ export default async function Product({
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const data: Movie[] = await response.json();
 
-  console.log("Data: ", data);
   return (
     <div className="container mt-10 flex items-center justify-center mb-10">
       <div className="flex flex-row justify-between">

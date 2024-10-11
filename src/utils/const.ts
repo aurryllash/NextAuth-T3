@@ -1,7 +1,8 @@
 export const nav = [
   { title: "Home", href: "/" },
-  { title: "Dashboard", href: "/" },
-  { title: "About", href: "/" },
+  { title: "Dashboard", href: "/dashboard" },
+  { title: "About", href: "/about" },
+  { title: "Time", href: "/Time" },
 ];
 
 export const footer_icons = [

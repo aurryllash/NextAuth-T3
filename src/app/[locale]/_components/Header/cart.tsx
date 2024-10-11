@@ -3,9 +3,18 @@
 import Image from "next/image";
 import cart_icon from "public/images/shopping-bag.png";
 import { useState } from "react";
+import { api } from "~/trpc/react";
+import CartProducts from "./cartProducts";
 
-export default function Cart({ setIsClosed }: { setIsClosed: (isClosed: boolean) => void}) {
+export default function Cart({
+  setIsClosed,
+}: {
+  setIsClosed: (isClosed: boolean) => void;
+}) {
   const [isOpened, setIsOpened] = useState<boolean>(false);
+  const { data } = api.product.getAllPost.useQuery({
+    number: 4,
+  });
   return (
     <>
       <div
@@ -16,12 +25,11 @@ export default function Cart({ setIsClosed }: { setIsClosed: (isClosed: boolean)
       ></div>
 
       <div
-        className={`fixed bottom-0 right-0 z-20 h-full transform bg-gray-800 text-white transition-transform w-64 md:w-96  ${
+        className={`fixed bottom-0 right-0 z-20 h-full w-64 transform bg-gray-800 pt-14 text-white transition-transform md:w-96 ${
           isOpened
             ? "flextranslate-x-0 flex-col items-center"
             : "translate-x-full"
         }`}
-        style={{ paddingTop: "60px" }}
       >
         <button
           className="absolute right-4 top-4 text-3xl"
@@ -29,22 +37,27 @@ export default function Cart({ setIsClosed }: { setIsClosed: (isClosed: boolean)
         >
           &times;
         </button>
-        <div className="flex h-full flex-col items-center justify-between">
+        <div className="flex h-full flex-col items-center gap-10">
           <h1>CART</h1>
+          <div>
+            {data?.map((data, index) => {
+              return <CartProducts key={index} data={data} />;
+            })}
+          </div>
         </div>
       </div>
 
       <button className="flex items-center justify-center rounded-md hover:cursor-pointer">
         <Image
-        className="w-6"
+          className="w-6"
           src={cart_icon}
           width={100}
           height={40}
           alt="menu icon"
           onClick={() => {
-            setIsOpened(true)
-            setIsClosed(false)
-        }}
+            setIsOpened(true);
+            setIsClosed(false);
+          }}
         />
       </button>
     </>
